@@ -4,6 +4,8 @@ const mysql = require('mysql');
 
 const app = express();
 
+//commenting out all of the specific database access stuff to test 
+/*
 //create connection to database - localhost
 const connection = mysql.createConnection({
 	host: 'localhost',
@@ -46,7 +48,8 @@ app.get('/players', (req, res) => {
 		}
 	});
 });
-
+//commenting out all of the specific database access stuff to test
+*/
 app.get('/', (req, res) => {
 	res.send('hello from the server side');
 });
