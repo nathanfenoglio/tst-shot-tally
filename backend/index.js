@@ -53,7 +53,7 @@ app.get('/players', (req, res) => {
 */
 app.get('/', (req, res) => {
 	//res.send('hello from the server side and fart in your face');
-	res.send('<div><h1>hello from the server side and fart in your face</h1></div>');
+	res.send('<div><h1>hello from the server side and fart in your face</h1><h3>butt</h3></div>');
 });
 
 app.listen(process.env.PORT || 4000, () => {
