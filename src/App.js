@@ -2,7 +2,7 @@ import React, { Component } from 'react'; //added
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+class App extends Component{ //added
 	render(){
   return (
     <div className="App">
