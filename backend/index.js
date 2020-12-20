@@ -3,6 +3,7 @@ const cors = require('cors');
 const mysql = require('mysql');
 
 const app = express();
+app.use(cors());
 
 //commenting out all of the specific database access stuff to test 
 /*
@@ -22,7 +23,7 @@ connection.connect(err  => {
 	}
 });
 
-app.use(cors());
+
 
 //creating route
 app.get('/', (req, res) => {
