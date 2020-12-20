@@ -52,7 +52,7 @@ app.get('/players', (req, res) => {
 //commenting out all of the specific database access stuff to test
 */
 app.get('/', (req, res) => {
-	res.send('hello from the server side');
+	res.send('hello from the server side and fart in your face');
 });
 
 app.listen(process.env.PORT || 4000, () => {
