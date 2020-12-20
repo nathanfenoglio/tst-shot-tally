@@ -1,7 +1,9 @@
+import React, { Component } from 'react'; //added
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+	render(){
   return (
     <div className="App">
 		<div>
@@ -23,6 +25,7 @@ function App() {
       </header>
     </div>
   );
+	}
 }
 
 export default App;
