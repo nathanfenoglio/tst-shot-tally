@@ -4,6 +4,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+		<div>
+			<h1 style={{color: 'yellow', fontFamily: 'cursive', fontSize: 100}}> Tst Shot Tally</h1>
+		</div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
