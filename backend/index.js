@@ -103,7 +103,7 @@ app.get('/api/players/add', (req, res) => {
 	
 });
 
-
+/*
 //create route to update something
 app.get('/api/players/update_something', (req, res) => {
 //app.get('/players/update_something', (req, res) => {
@@ -122,15 +122,15 @@ app.get('/api/players/update_something', (req, res) => {
 		}
 	});
 });
-
+*/
 //create route to start a new day
 app.get('/api/players/setup_new_day', (req, res) => {
 //app.get('/players/setup_new_day', (req, res) => {
 //app.get('https://tst-shot-tally.herokuapp.com/players/setup_new_day', (req, res) => {
 //app.get('https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players/setup_new_day', (req, res) => {
 	//const SETUP_NEW_DAY_QUERY = 'insert into duals_by_day(player1_ID, player2_ID, date_of_dual, p1_shots_for_day, p2_shots_for_day) values (1, 2, curdate(), 0, 0), (1, 3, curdate(), 0, 0), (1, 4, curdate(), 0, 0), (2, 3, curdate(), 0, 0), (2, 4, curdate(), 0, 0), (3, 4, curdate(), 0, 0)';
-	const SETUP_NEW_DAY_QUERY = 'insert into duals_by_day(player1_ID, player2_ID, date_of_dual, p1_shots_for_day, p2_shots_for_day) values (1, 11, curdate(), 0, 0), (1, 21, curdate(), 0, 0), (1, 31, curdate(), 0, 0), (11, 21, curdate(), 0, 0), (11, 31, curdate(), 0, 0), (21, 31, curdate(), 0, 0)';
-	
+	//const SETUP_NEW_DAY_QUERY = 'insert into duals_by_day(player1_ID, player2_ID, date_of_dual, p1_shots_for_day, p2_shots_for_day) values (1, 11, curdate(), 0, 0), (1, 21, curdate(), 0, 0), (1, 31, curdate(), 0, 0), (11, 21, curdate(), 0, 0), (11, 31, curdate(), 0, 0), (21, 31, curdate(), 0, 0)';
+	const SETUP_NEW_DAY_QUERY = 'insert into Duals_By_Day(player1_ID, player2_ID, date_of_dual, p1_shots_for_day, p2_shots_for_day) values (1, 2, curdate(), 0, 0), (1, 3, curdate(), 0, 0), (1, 4, curdate(), 0, 0), (2, 3, curdate(), 0, 0), (2, 4, curdate(), 0, 0), (3, 4, curdate(), 0, 0)';
 	connection.query(SETUP_NEW_DAY_QUERY, (err, results) => {
 		if(err){
 			return res.send(err);
