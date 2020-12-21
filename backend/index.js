@@ -45,7 +45,8 @@ app.get('/', (req, res) => {
 app.get('/players', (req, res) => {
 //app.get('https://tst-shot-tally.herokuapp.com/players', (req, res) => {
 //app.get('https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players', (req, res) => {
-	const SELECT_ALL_PLAYERS_QUERY = 'SELECT * FROM players';
+	//const SELECT_ALL_PLAYERS_QUERY = 'SELECT * FROM players';
+	const SELECT_ALL_PLAYERS_QUERY = 'SELECT * FROM Players';
 	connection.query(SELECT_ALL_PLAYERS_QUERY, (err, results) => {
 		if(err){
 			return res.send(err);
