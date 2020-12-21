@@ -195,7 +195,7 @@ class App extends Component{ //added
 				
 				<div>
 					<h1 style={{color: 'orchid', fontFamily: 'cursive', fontSize: 90}}>Today's Totals</h1>
-					//{duals_today.map(this.renderDualsByDay)}
+					
 				</div>
 				
 				<div>
