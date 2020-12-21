@@ -15,6 +15,15 @@ const connection = mysql.createConnection({
 	database: 'tst_shot_tally',
 	multipleStatements: true
 });
+*/
+
+const connection = mysql.createConnection({
+	host: 'tst-shot-tally-take-million.cpp3rxeuxzx8.us-east-2.rds.amazonaws.com',
+	user: 'admin',
+	password: 'password123',
+	database: 'tst_shot_tally',
+	multipleStatements: true
+});
 
 //connect to database
 connection.connect(err  => {
@@ -50,7 +59,7 @@ app.get('/players', (req, res) => {
 	});
 });
 //commenting out all of the specific database access stuff to test
-*/
+
 app.get('/', (req, res) => {
 	//res.send('hello from the server side and fart in your face');
 	res.send('<div><h1>hello from the server side and fart in your face</h1><h3>butt</h3></div>');
