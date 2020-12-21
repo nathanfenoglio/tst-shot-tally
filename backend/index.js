@@ -35,7 +35,6 @@ connection.connect(err  => {
 
 
 //creating route
-//app.get('/', (req, res) => {
 app.get('/', (req, res) => {
 //app.get('https://tst-shot-tally.herokuapp.com/', (req, res) => {
 //app.get('https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/', (req, res) => {
@@ -44,8 +43,8 @@ app.get('/', (req, res) => {
 });
 
 //create route to players
-app.get('tst-shot-tally-take-million.cpp3rxeuxzx8.us-east-2.rds.amazonaws.com/players', (req, res) => {
-//app.get('/players', (req, res) => {
+//app.get('tst-shot-tally-take-million.cpp3rxeuxzx8.us-east-2.rds.amazonaws.com/players', (req, res) => {
+app.get('/players', (req, res) => {
 //app.get('https://tst-shot-tally.herokuapp.com/players', (req, res) => {
 //app.get('https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players', (req, res) => {
 	//const SELECT_ALL_PLAYERS_QUERY = 'SELECT * FROM players';
