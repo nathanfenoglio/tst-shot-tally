@@ -71,7 +71,8 @@ app.get('/api/duals_today', (req, res) => {
 //app.get('https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/duals_today', (req, res) => {
 	//const SELECT_ALL_DUALS_FOR_TODAY_QUERY = 'SELECT player1_ID, player2_ID, p1_shots_for_day, p2_shots_for_day FROM duals_by_day WHERE date_of_dual = curdate()';
 	//const SELECT_ALL_DUALS_FOR_TODAY_QUERY = 'SELECT player1_ID, player2_ID, p1.F_name, p2.F_name, p1_shots_for_day, p2_shots_for_day FROM duals_by_day, players p1, players p2 WHERE date_of_dual = curdate() AND player1_ID = p1.player_ID AND player2_ID = p2.player_ID';
-	const SELECT_ALL_DUALS_FOR_TODAY_QUERY = 'SELECT player1_ID, player2_ID, p1.F_name as p1_first_name, p2.F_name as p2_first_name, p1_shots_for_day, p2_shots_for_day FROM duals_by_day, players p1, players p2 WHERE date_of_dual = curdate() AND player1_ID = p1.player_ID AND player2_ID = p2.player_ID';
+	//const SELECT_ALL_DUALS_FOR_TODAY_QUERY = 'SELECT player1_ID, player2_ID, p1.F_name as p1_first_name, p2.F_name as p2_first_name, p1_shots_for_day, p2_shots_for_day FROM duals_by_day, players p1, players p2 WHERE date_of_dual = curdate() AND player1_ID = p1.player_ID AND player2_ID = p2.player_ID';
+	const SELECT_ALL_DUALS_FOR_TODAY_QUERY = 'SELECT player1_ID, player2_ID, p1.F_name as p1_first_name, p2.F_name as p2_first_name, p1_shots_for_day, p2_shots_for_day FROM Duals_By_Day, Players p1, Players p2 WHERE date_of_dual = curdate() AND player1_ID = p1.player_ID AND player2_ID = p2.player_ID';
 	connection.query(SELECT_ALL_DUALS_FOR_TODAY_QUERY, (err, results) => {
 		if(err){
 			return res.send(err);
