@@ -39,6 +39,7 @@ app.get('/', (req, res) => {
 //app.get('https://tst-shot-tally.herokuapp.com/', (req, res) => {
 //app.get('https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/', (req, res) => {
 	res.send('go to /players to see players');
+	res.send('<div><h1>hello from the server side and fart in your face</h1><h3>butt</h3></div>');
 });
 
 //create route to players
@@ -60,12 +61,12 @@ app.get('/players', (req, res) => {
 	});
 });
 //commenting out all of the specific database access stuff to test
-
+/*
 app.get('/', (req, res) => {
 	//res.send('hello from the server side and fart in your face');
 	res.send('<div><h1>hello from the server side and fart in your face</h1><h3>butt</h3></div>');
 });
-
+*/
 app.listen(process.env.PORT || 4000, () => {
 	console.log(`Products server listening on port 4000`);
 });
