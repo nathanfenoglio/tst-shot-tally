@@ -53,7 +53,9 @@ class App extends Component{ //added
 	getPlayers = _ => {
 		//fetch('tst-shot-tally-take-million.cpp3rxeuxzx8.us-east-2.rds.amazonaws.com/players')
 		//fetch('http://localhost:4000/players')
-		fetch('http://localhost:4000/api/players')
+		//fetch('http://localhost:4000/api/players')
+		fetch('http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players')
+		
 		//fetch('http://localhost:5000/players')
 		//fetch('https://tst-shot-tally.herokuapp.com/players')
 		//fetch('https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players')
