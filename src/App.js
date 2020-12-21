@@ -29,9 +29,6 @@ class App extends Component{ //added
 }
 */
 
-import React, { Component } from 'react'; //added
-import './App.css';
-
 //function App() {
 class App extends Component{ //added
 	
