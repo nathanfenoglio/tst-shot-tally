@@ -68,6 +68,8 @@ app.get('/', (req, res) => {
 	res.send('<div><h1>hello from the server side and fart in your face</h1><h3>butt</h3></div>');
 });
 */
-app.listen(process.env.PORT || 4000, () => {
-	console.log(`Products server listening on port 4000`);
+//app.listen(process.env.PORT || 4000, () => {
+app.listen(process.env.PORT || 5000, () => {
+	//console.log(`Products server listening on port 4000`);
+	console.log(`Products server listening on port 5000`);
 });
