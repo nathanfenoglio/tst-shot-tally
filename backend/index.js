@@ -178,7 +178,7 @@ app.get('/api/players/end_day_tally', (req, res) => {
 });
 //just a comment
 //create route for lesser indexed player to shoot higher indexed player
-app.get('/add/players/apply_shot', (req, res) => {
+app.get('/api/players/apply_shot', (req, res) => {
 //app.get('/players/apply_shot', (req, res) => {
 //app.get('https://tst-shot-tally.herokuapp.com/players/apply_shot', (req, res) => {
 //app.get('https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players/apply_shot', (req, res) => {
