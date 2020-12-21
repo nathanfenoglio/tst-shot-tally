@@ -65,7 +65,8 @@ class App extends Component{ //added
 	}
 	
 	getDualsToday = () => {
-		fetch('http://localhost:4000/duals_today')
+		fetch('http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/duals_today')
+		//fetch('http://localhost:4000/duals_today')
 		//fetch('https://tst-shot-tally.herokuapp.com/duals_today')
 		//fetch('https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/duals_today')
 			.then(response => response.json())
@@ -75,7 +76,8 @@ class App extends Component{ //added
 	
 	addPlayer = _ => {
 		const { player } = this.state;
-		fetch(`http://localhost:4000/players/add?F_name=${player.F_name}&L_name=${player.L_name}`)
+		fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/add?F_name=${player.F_name}&L_name=${player.L_name}`)
+		//fetch(`http://localhost:4000/players/add?F_name=${player.F_name}&L_name=${player.L_name}`)
 		//fetch(`https://tst-shot-tally.herokuapp.com/players/add?F_name=${player.F_name}&L_name=${player.L_name}`)
 		//fetch(`https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players/add?F_name=${player.F_name}&L_name=${player.L_name}`)
 			.then(this.getPlayers)
@@ -85,7 +87,8 @@ class App extends Component{ //added
 	//just trying to update something like tot_shots
 	updateSomething = _ => {
 		const { player } = this.state;
-		fetch(`http://localhost:4000/players/update_something?player_ID=${player.player_ID}`)
+		fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/update_something?player_ID=${player.player_ID}`)
+		//fetch(`http://localhost:4000/players/update_something?player_ID=${player.player_ID}`)
 		//fetch(`https://tst-shot-tally.herokuapp.com/players/update_something?player_ID=${player.player_ID}`)
 		//fetch(`https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players/update_something?player_ID=${player.player_ID}`)
 			.then(this.getPlayers)
@@ -103,7 +106,8 @@ class App extends Component{ //added
 	}
 	
 	begin_new_day = () =>{
-		fetch(`http://localhost:4000/players/setup_new_day`)
+		fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/setup_new_day`)
+		//fetch(`http://localhost:4000/players/setup_new_day`)
 		//fetch(`https://tst-shot-tally.herokuapp.com/players/setup_new_day`)
 		//fetch(`https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players/setup_new_day`)
 			.then(this.getPlayers)
@@ -121,7 +125,8 @@ class App extends Component{ //added
 	//changing to accept date input instead of current day
 	end_day_tally = () => {
 		const { day_to_close } = this.state;
-		fetch(`http://localhost:4000/players/end_day_tally?day_to_close=${day_to_close}`)
+		fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/end_day_tally?day_to_close=${day_to_close}`)
+		//fetch(`http://localhost:4000/players/end_day_tally?day_to_close=${day_to_close}`)
 		//fetch(`https://tst-shot-tally.herokuapp.com/players/end_day_tally?day_to_close=${day_to_close}`)
 		//fetch(`https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players/end_day_tally?day_to_close=${day_to_close}`)
 			.then(this.getPlayers)
@@ -133,7 +138,8 @@ class App extends Component{ //added
 		const { shooter, got_shot } = this.state;
 		console.log("apply shot registered click");
 		if(shooter < got_shot){
-			fetch(`http://localhost:4000/players/apply_shot?shooter=${shooter}&got_shot=${got_shot}`)
+			fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/apply_shot?shooter=${shooter}&got_shot=${got_shot}`)
+			//fetch(`http://localhost:4000/players/apply_shot?shooter=${shooter}&got_shot=${got_shot}`)
 			//fetch(`https://tst-shot-tally.herokuapp.com/players/apply_shot?shooter=${shooter}&got_shot=${got_shot}`)
 			//fetch(`https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players/apply_shot?shooter=${shooter}&got_shot=${got_shot}`)
 				.then(this.getPlayers)
@@ -141,7 +147,8 @@ class App extends Component{ //added
 				.catch(err => console.error(err))
 		}
 		else{
-			fetch(`http://localhost:4000/players/apply_shot_player2?shooter=${shooter}&got_shot=${got_shot}`)
+			fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/apply_shot_player2?shooter=${shooter}&got_shot=${got_shot}`)
+			//fetch(`http://localhost:4000/players/apply_shot_player2?shooter=${shooter}&got_shot=${got_shot}`)
 			//fetch(`https://tst-shot-tally.herokuapp.com/players/apply_shot_player2?shooter=${shooter}&got_shot=${got_shot}`)
 			//fetch(`https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players/apply_shot_player2?shooter=${shooter}&got_shot=${got_shot}`)
 				.then(this.getPlayers)
