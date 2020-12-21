@@ -184,6 +184,9 @@ app.get('/api/players/apply_shot', (req, res) => {
 //app.get('https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players/apply_shot', (req, res) => {
 	const { shooter, got_shot } = req.query;
 	console.log(shooter + ' ' + got_shot);
+	//what day and time does it think it is anyway?
+	var current_date = new Date().toLocaleString();
+	console.log(current_date);
 	//const APPLY_SHOT_QUERY_TO_DUALS_BY_DAY = `update duals_by_day set p1_shots_for_day = p1_shots_for_day + 1 where player1_ID = ${shooter} and player2_ID = ${got_shot} and date_of_dual = curdate(); update duals set p1_tot_shots = p1_tot_shots + 1 where player1_ID = ${shooter} and player2_ID = ${got_shot}; update players set tot_shots = tot_shots + 1 where player_ID = ${shooter}; update players set tot_got_hits = tot_got_hits + 1 where player_ID = ${got_shot};`;
 	const APPLY_SHOT_QUERY_TO_DUALS_BY_DAY = `update Duals_By_Day set p1_shots_for_day = p1_shots_for_day + 1 where player1_ID = ${shooter} and player2_ID = ${got_shot} and date_of_dual = curdate(); update Duals set p1_tot_shots = p1_tot_shots + 1 where player1_ID = ${shooter} and player2_ID = ${got_shot}; update Players set tot_shots = tot_shots + 1 where player_ID = ${shooter}; update Players set tot_got_hits = tot_got_hits + 1 where player_ID = ${got_shot};`;
 	connection.query(APPLY_SHOT_QUERY_TO_DUALS_BY_DAY, (err, results) => {
