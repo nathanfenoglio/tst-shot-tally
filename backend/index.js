@@ -38,8 +38,8 @@ connection.connect(err  => {
 app.get('/', (req, res) => {
 //app.get('https://tst-shot-tally.herokuapp.com/', (req, res) => {
 //app.get('https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/', (req, res) => {
-	res.send('go to /players to see players');
-	res.send('<div><h1>hello from the server side and fart in your face</h1><h3>butt</h3></div>');
+	res.send('<div><h1>hello from the server side and fart in your face</h1><h3>butt</h3></div>go to /players to see players');
+	//res.send('<div><h1>hello from the server side and fart in your face</h1><h3>butt</h3></div>');
 });
 
 //create route to players
