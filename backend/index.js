@@ -44,7 +44,8 @@ app.get('/', (req, res) => {
 
 //create route to players
 //app.get('tst-shot-tally-take-million.cpp3rxeuxzx8.us-east-2.rds.amazonaws.com/players', (req, res) => {
-app.get('/players', (req, res) => {
+//app.get('/players', (req, res) => {
+app.get('/api/players', (req, res) => {
 //app.get('https://tst-shot-tally.herokuapp.com/players', (req, res) => {
 //app.get('https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players', (req, res) => {
 	//const SELECT_ALL_PLAYERS_QUERY = 'SELECT * FROM players';
@@ -68,8 +69,8 @@ app.get('/', (req, res) => {
 	res.send('<div><h1>hello from the server side and fart in your face</h1><h3>butt</h3></div>');
 });
 */
-//app.listen(process.env.PORT || 4000, () => {
-app.listen(process.env.PORT || 5000, () => {
-	//console.log(`Products server listening on port 4000`);
-	console.log(`Products server listening on port 5000`);
+app.listen(process.env.PORT || 4000, () => {
+//app.listen(process.env.PORT || 5000, () => {
+	console.log(`Products server listening on port 4000`);
+	//console.log(`Products server listening on port 5000`);
 });
