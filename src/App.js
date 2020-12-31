@@ -173,7 +173,7 @@ class App extends Component{ //added
 					{/*{this.getButtonsUsingMap()}*/}
 					<h1 style={{fontFamily: 'fantasy', fontSize: 50}}>The Shooter</h1>
 					{console.log("Shooter: ", this.state.shooter)}
-					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ shooter: 1 })}><img src="Nate_Grump_Face.png" alt="nathan" style={{width: '200px', height: '200px'}}/><br/>NathaN</button>
+					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ shooter: 1 })}><img src="Nate_Waiving.png" alt="nathan" style={{width: '200px', height: '200px'}}/><br/>NathaN</button>
 					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ shooter: 2 })}><img src="Daisy.png" alt="daisy" style={{width: '200px', height: '200px'}}/><br/>DaisY</button>
 					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ shooter: 3 })}><img src="Tati_censored.png" alt="tatiana" style={{width: '200px', height: '200px'}}/><br/>TatianA</button>
 					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ shooter: 4 })}><img src="Jessica_Normal_Face.png" alt="jessica" style={{width: '200px', height: '200px'}}/><br/>JessicA</button>
@@ -182,7 +182,7 @@ class App extends Component{ //added
 				<div>
 					<h1 style={{fontFamily: 'fantasy', fontSize: 50}}>The One Who Got Shot</h1>
 					{console.log("Got Shot: ", this.state.got_shot)}
-					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ got_shot: 1 })}><img src="Nate_Grump_Face.png" alt="nathan" style={{width: '200px', height: '200px'}}/><br/>NathaN</button>
+					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ got_shot: 1 })}><img src="Nate_Waiving.png" alt="nathan" style={{width: '200px', height: '200px'}}/><br/>NathaN</button>
 					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ got_shot: 2 })}><img src="Daisy.png" alt="daisy" style={{width: '200px', height: '200px'}}/><br/>DaisY</button>
 					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ got_shot: 3 })}><img src="Tati_censored.png" alt="tatiana" style={{width: '200px', height: '200px'}}/><br/>TatianA</button>
 					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ got_shot: 4 })}><img src="Jessica_Normal_Face.png" alt="jessica" style={{width: '200px', height: '200px'}}/><br/>JessicA</button>
