@@ -2,6 +2,84 @@
   text-align: center;
 }
 
+.title{
+  color: yellow;
+  font-family: cursive;
+  font-size: 7vw;
+}
+
+.shot-got-shot-header{
+  font-family: fantasy;
+  font-size: 4.5vw;
+}
+
+.player-button{
+  font-weight: bold;
+  color: orangered;
+  font-family: fantasy;
+  /*font-size: 40px;*/
+  font-size: 4vw;
+}
+
+.apply-shot-button{
+  background-color: #FF333E;
+  /*width: 200px;*/
+  width: 14vw;
+  /*height: 100px;*/
+  height: 7vw;
+  /*font-size: 33px;*/
+  font-size: 2.5vw;
+  font-weight: bold;
+  color: chartreuse;
+}
+
+.todays-totals-header{
+  color: orchid;
+  font-family: cursive;
+  /*font-size: 90px;*/
+  font-size: 6vw;
+  height: 4vw;
+}
+
+.total-entries{
+  color: blue;
+  /*font-size: 50px;*/
+  font-size: 4vw;
+  height: 2vw;
+}
+
+.button-default{
+  /*height: 80px;
+  width: 180px;
+  */
+  height: 7vw;
+  width: 14vw;
+  font-family: calisto;
+  font-weight: bold;
+  /*font-size: 23px;*/
+  font-size: 1.7vw;
+  color: tomato;
+}
+
+.input-box{
+  height: 6vw;
+  width: 36vw;
+  background-color: lightblue;
+}
+
+.tot-shots-long-term{
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  border: dashed 0.5vw;
+  border-color: black;
+  margin-bottom: 1vw;
+  margin-top: 2vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  font-size: 2.5vw;
+  background-color: chartreuse;
+}
+
+/*
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,3 +114,4 @@
     transform: rotate(360deg);
   }
 }
+*/

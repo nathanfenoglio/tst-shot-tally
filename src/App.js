@@ -1,6 +1,7 @@
 import React, { Component } from 'react'; //added
 //import logo from './logo.svg';
 import './App.css';
+import MachineGunFire from "./machine_gun_fire.mp3";
 /*
 class App extends Component{ //added
 	render(){
@@ -158,67 +159,71 @@ class App extends Component{ //added
 	
 	}
 	//just a comment
-	renderPlayers = ({ player_ID, F_name, L_name, tot_shots}) => <div key={player_ID}>{F_name} {L_name} Total Shots: {tot_shots}</div>
-	renderDualsByDay = ( {player1_ID, player2_ID, p1_first_name, p2_first_name, p1_shots_for_day, p2_shots_for_day}) => <div key={player1_ID + '-' + player2_ID}><h3 style={{ color: 'blue', fontSize: 50 }}>{p1_first_name}: {p1_shots_for_day} vs {p2_first_name}: {p2_shots_for_day}</h3></div>
+	renderPlayers = ({ player_ID, F_name, L_name, tot_shots}) => <div className="tot-shots-long-term" key={player_ID}>{F_name} {L_name} Total Shots: {tot_shots}</div>
+	renderDualsByDay = ( {player1_ID, player2_ID, p1_first_name, p2_first_name, p1_shots_for_day, p2_shots_for_day}) => <div key={player1_ID + '-' + player2_ID}><h3 className="total-entries">{p1_first_name}: {p1_shots_for_day} vs {p2_first_name}: {p2_shots_for_day}</h3></div>
 	
 	render(){
 		const { players, player, duals_today, day_to_close } = this.state;
 		return (
 			<div className="App">
 				<div>
-					<h1 style={{color: 'yellow', fontFamily: 'cursive', fontSize: 100}}> Tst Shot Tally</h1>
+					<h1 className="title"> Tst Shot Tally</h1>
 				</div>
 				
 				<div>
 					{/*{this.getButtonsUsingMap()}*/}
-					<h1 style={{fontFamily: 'fantasy', fontSize: 50}}>The Shooter</h1>
+					<h1 className="shot-got-shot-header">The Shooter</h1>
 					{console.log("Shooter: ", this.state.shooter)}
-					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ shooter: 1 })}><img src="Nate_Waiving.png" alt="nathan" style={{width: '5em', height: '5em'}}/><br/>NathaN</button>
-					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ shooter: 2 })}><img src="Daisy.png" alt="daisy" style={{width: '5em', height: '5em'}}/><br/>DaisY</button>
-					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ shooter: 3 })}><img src="Tati_censored.png" alt="tatiana" style={{width: '5em', height: '5em '}}/><br/>TatianA</button>
-					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ shooter: 4 })}><img src="Jessica_Normal_Face.png" alt="jessica" style={{width: '5em', height: '5em'}}/><br/>JessicA</button>
+					<button className="player-button" onClick={() => this.setState({ shooter: 1 })}><img src="Nate_Waiving.png" alt="nathan" style={{width: '2.5em', height: '2.5em'}}/><br/>NathaN</button>
+					<button className="player-button" onClick={() => this.setState({ shooter: 2 })}><img src="Daisy.png" alt="daisy" style={{width: '2.5em', height: '2.5em'}}/><br/>DaisY</button>
+					<button className="player-button" onClick={() => this.setState({ shooter: 3 })}><img src="Tati_censored.png" alt="tatiana" style={{width: '2.5em', height: '2.5em'}}/><br/>TatianA</button>
+					<button className="player-button" onClick={() => this.setState({ shooter: 4 })}><img src="Jessica_Normal_Face.png" alt="jessica" style={{width: '2.5em', height: '2.5em'}}/><br/>JessicA</button>
 				</div>
 				
 				<div>
-					<h1 style={{fontFamily: 'fantasy', fontSize: 50}}>The One Who Got Shot</h1>
+					<h1 className="shot-got-shot-header">The One Who Got Shot</h1>
 					{console.log("Got Shot: ", this.state.got_shot)}
-					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ got_shot: 1 })}><img src="Nate_Waiving.png" alt="nathan" style={{width: '5em', height: '5em'}}/><br/>NathaN</button>
-					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ got_shot: 2 })}><img src="Daisy.png" alt="daisy" style={{width: '5em', height: '5em'}}/><br/>DaisY</button>
-					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ got_shot: 3 })}><img src="Tati_censored.png" alt="tatiana" style={{width: '5em', height: '5em'}}/><br/>TatianA</button>
-					<button style={{fontWeight: 'bold', color: 'orangered', fontFamily: 'fantasy', fontSize: 40}} onClick={() => this.setState({ got_shot: 4 })}><img src="Jessica_Normal_Face.png" alt="jessica" style={{width: '5em', height: '5em'}}/><br/>JessicA</button>
+					<button className="player-button" onClick={() => this.setState({ got_shot: 1 })}><img src="Nate_Waiving.png" alt="nathan" style={{width: '2.5em', height: '2.5em'}}/><br/>NathaN</button>
+					<button className="player-button" onClick={() => this.setState({ got_shot: 2 })}><img src="Daisy.png" alt="daisy" style={{width: '2.5em', height: '2.5em'}}/><br/>DaisY</button>
+					<button className="player-button" onClick={() => this.setState({ got_shot: 3 })}><img src="Tati_censored.png" alt="tatiana" style={{width: '2.5em', height: '2.5em'}}/><br/>TatianA</button>
+					<button className="player-button" onClick={() => this.setState({ got_shot: 4 })}><img src="Jessica_Normal_Face.png" alt="jessica" style={{width: '2.5em', height: '2.5em'}}/><br/>JessicA</button>
 				</div>
 				
 				<div>
 					<br/>
-					<button onClick={this.applyShot} style={{backgroundColor: '#FF333E', width: '200px', height: '100px', fontSize: '33px', fontWeight: 'bold', color: 'chartreuse'}}>Apply Shot</button>
+					<button className="apply-shot-button" onClick={this.applyShot}>Apply Shot</button>
 				</div>
 				
 				<div>
-					<h1 style={{color: 'orchid', fontFamily: 'cursive', fontSize: 90}}>Today's Totals</h1>
+					<h1 className="todays-totals-header">Today's Totals</h1>
 					{duals_today.map(this.renderDualsByDay)}
 				</div>
 				
 				<div>
-					<button style={{height: 80, width: 180, fontFamily: 'calisto', fontWeight: 'bold', fontSize: 23, color: 'tomato'}} onClick={this.begin_new_day}>Start New Day of Violence</button>
+					<button className="button-default" onClick={this.begin_new_day}>Start New Day of Violence</button>
 				</div>
 				
 				<div>
 					<br/><br/>
-					<input value={day_to_close} placeholder='Enter date to close' onChange={e => this.setState({ day_to_close: e.target.value })}/>
+					<input className="input-box" value={day_to_close} placeholder='Enter date to close' onChange={e => this.setState({ day_to_close: e.target.value })}/>
 					<h3>{day_to_close}</h3>
-					<button style={{height: 80, width: 180, fontFamily: 'calisto', fontWeight: 'bold', fontSize: 23, color: 'tomato'}} onClick={this.end_day_tally}>End Day Tally Wins/Losses</button>
+					<button className="button-default" onClick={this.end_day_tally}>End Day Tally Wins/Losses</button>
 					
 				</div>
 				
 				{players.map(this.renderPlayers)}
 				
-				<div>
-					<h5>Register New Player</h5>
-					<input value={player.F_name} placeholder='First Name' onChange={e => this.setState({ player: { ...player, F_name: e.target.value}})}/>
-					<input value={player.L_name} placeholder='Last Name' onChange={e => this.setState({ player: { ...player, L_name: e.target.value}})}/>
-					<button onClick={this.addPlayer}>Add Player</button>
+				<div style={{marginBottom: "10em"}}>
+					<h5 style={{fontSize: "3vw", paddingBottom: "0em"}}>Register New Player</h5>
+					<input className="input-box" value={player.F_name} placeholder='First Name' onChange={e => this.setState({ player: { ...player, F_name: e.target.value}})}/>
+					<input className="input-box" value={player.L_name} placeholder='Last Name' onChange={e => this.setState({ player: { ...player, L_name: e.target.value}})}/>
+					<br/>
+					<button className="button-default" onClick={this.addPlayer}>Add Player</button>
 				</div>
-				
+
+				<div>
+					<audio className="audio-link" ref="audio_tag" src={MachineGunFire} autoPlay />	
+				</div>		
 			</div>
 		);
 	};
