@@ -2,7 +2,7 @@ import React, { Component } from 'react'; //added
 //import logo from './logo.svg';
 import './App.css';
 import MachineGunFire from "./machine_gun_fire.mp3";
-import SoundOfSilence from "./silence.wav";
+import SoundOfSilence from "./silence.mp3";
 /*
 class App extends Component{ //added
 	render(){
