@@ -222,7 +222,7 @@ class App extends Component{ //added
 				</div>
 
 				<div>
-					<audio className="audio-link" ref="audio_tag" src={MachineGunFire} autoPlay />	
+					<audio className="audio-link" ref="audio_tag" src={MachineGunFire} autoPlay controls/>	
 				</div>		
 			</div>
 		);
