@@ -167,6 +167,7 @@ class App extends Component{ //added
 		const { players, player, duals_today, day_to_close } = this.state;
 		return (
 			<div className="App">
+				{window.scrollTo(0, 0)}
 				<div>
 					<h1 className="title"> Tst Shot Tally</h1>
 				</div>
