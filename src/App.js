@@ -160,11 +160,6 @@ class App extends Component{ //added
 	
 	}
 
-	LoadOnce() 
-	{ 
-		window.location.reload(); 
-	} 
-
 	//just a comment
 	renderPlayers = ({ player_ID, F_name, L_name, tot_shots}) => <div className="tot-shots-long-term" key={player_ID}>{F_name} {L_name} Total Shots: {tot_shots}</div>
 	renderDualsByDay = ( {player1_ID, player2_ID, p1_first_name, p2_first_name, p1_shots_for_day, p2_shots_for_day}) => <div key={player1_ID + '-' + player2_ID}><h3 className="total-entries">{p1_first_name}: {p1_shots_for_day} vs {p2_first_name}: {p2_shots_for_day}</h3></div>
@@ -172,7 +167,7 @@ class App extends Component{ //added
 	render(){
 		const { players, player, duals_today, day_to_close } = this.state;
 		return (
-			<div className="App" onLoad="LoadOnce()">
+			<div className="App">
 				{window.scrollTo(0, 0)}
 				<div>
 					<h1 className="title"> Tst Shot Tally</h1>
