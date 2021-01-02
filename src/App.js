@@ -2,6 +2,7 @@ import React, { Component } from 'react'; //added
 //import logo from './logo.svg';
 import './App.css';
 import MachineGunFire from "./machine_gun_fire.mp3";
+import SoundOfSilence from "./silence.wav";
 /*
 class App extends Component{ //added
 	render(){
@@ -222,6 +223,7 @@ class App extends Component{ //added
 				</div>
 
 				<div>
+					<iframe src={SoundOfSilence} allow="autoplay" id="audio1" style={{display: "none"}}></iframe>
 					<audio className="audio-link" ref="audio_tag" src={MachineGunFire} autoPlay controls/>	
 				</div>		
 			</div>
