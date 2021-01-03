@@ -9,14 +9,14 @@
 }
 
 .shot-got-shot-header{
-  font-family: fantasy;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 4.5vw;
 }
 
 .player-button{
   font-weight: bold;
   color: orangered;
-  font-family: fantasy;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   /*font-size: 40px;*/
   font-size: 4vw;
 }
