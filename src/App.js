@@ -177,10 +177,10 @@ class App extends Component{ //added
 					{/*{this.getButtonsUsingMap()}*/}
 					<h1 className="shot-got-shot-header">The Shooter</h1>
 					{console.log("Shooter: ", this.state.shooter)}
-					<button className="player-button" onClick={() => this.setState({ shooter: 1 })}><img src="Nate_Waiving.png" alt="nathan" style={{width: '7vw', height: '7vw'}}/><br/>NathaN</button>
-					<button className="player-button" onClick={() => this.setState({ shooter: 2 })}><img src="Daisy.png" alt="daisy" style={{width: '7vw', height: '7vw'}}/><br/>DaisY</button>
-					<button className="player-button" onClick={() => this.setState({ shooter: 3 })}><img src="Tati_censored.png" alt="tatiana" style={{width: '7vw', height: '7vw'}}/><br/>TatianA</button>
-					<button className="player-button" onClick={() => this.setState({ shooter: 4 })}><img src="Jessica_Normal_Face.png" alt="jessica" style={{width: '7vw', height: '7vw'}}/><br/>JessicA</button>
+					<button className="player-button" onClick={() => this.setState({ shooter: 1 })}><img src="Nate_Waiving.png" alt="nathan" style={{width: '7vw', height: '7vw'}}/>NathaN</button>
+					<button className="player-button" onClick={() => this.setState({ shooter: 2 })}><img src="Daisy.png" alt="daisy" style={{width: '7vw', height: '7vw'}}/>DaisY</button>
+					<button className="player-button" onClick={() => this.setState({ shooter: 3 })}><img src="Tati_censored.png" alt="tatiana" style={{width: '7vw', height: '7vw'}}/>TatianA</button>
+					<button className="player-button" onClick={() => this.setState({ shooter: 4 })}><img src="Jessica_Normal_Face.png" alt="jessica" style={{width: '7vw', height: '7vw'}}/>JessicA</button>
 				</div>
 				
 				<div>
