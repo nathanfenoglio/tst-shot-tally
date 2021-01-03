@@ -4,7 +4,7 @@
 
 .title{
   color: yellow;
-  font-family: cursive;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 7vw;
 }
 
@@ -35,7 +35,7 @@
 
 .todays-totals-header{
   color: orchid;
-  font-family: cursive;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   /*font-size: 90px;*/
   font-size: 6vw;
   height: 4vw;
