@@ -42,6 +42,7 @@ class App extends Component{ //added
 			player_ID: ''
 		},
 		duals_today: [],
+		duals_history: [],
 		day_to_close: '',
 		shooter: 0,
 		got_shot: 0
@@ -50,6 +51,7 @@ class App extends Component{ //added
 	componentDidMount(){
 		this.getPlayers();
 		this.getDualsToday();
+		this.getDualsHistory();
 	}
 	
 	getPlayers = _ => {
@@ -73,6 +75,13 @@ class App extends Component{ //added
 		//fetch('https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/duals_today')
 			.then(response => response.json())
 			.then(response => this.setState({ duals_today: response.data }))
+			.catch(err => console.error(err))
+	}
+
+	getDualsHistory = () =>{
+		fetch('http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/duals_history')
+			.then(response => response.json())
+			.then(response => this.setState({ duals_history: response.data }))
 			.catch(err => console.error(err))
 	}
 	
@@ -160,12 +169,14 @@ class App extends Component{ //added
 	
 	}
 
-	//just a comment
+	//render functions to take data from state and turn into html like display stuff
 	renderPlayers = ({ player_ID, F_name, L_name, tot_shots}) => <div className="tot-shots-long-term" key={player_ID}>{F_name} {L_name} Total Shots: {tot_shots}</div>
 	renderDualsByDay = ( {player1_ID, player2_ID, p1_first_name, p2_first_name, p1_shots_for_day, p2_shots_for_day}) => <div key={player1_ID + '-' + player2_ID}><h3 className="total-entries">{p1_first_name}: {p1_shots_for_day} vs {p2_first_name}: {p2_shots_for_day}</h3></div>
-	
+	//NEED TO FINISH renderDualsHistory and then display in render function
+	renderDualsHistory = ( {p1_F_name, p1_tot_wins, p2_F_name, p2_tot_wins, } ) => <div key={p1_F_name + '-' + p2_F_name}><h3 className="total-entries">{p1_F_name}: {p1_tot_wins} vs {p2_F_name}: {p2_tot_wins}</h3></div>
+
 	render(){
-		const { players, player, duals_today, day_to_close } = this.state;
+		const { players, player, duals_today, day_to_close, duals_history } = this.state;
 		return (
 			<div className="App">
 				{window.scrollTo(0, 0)}
@@ -200,6 +211,11 @@ class App extends Component{ //added
 				<div>
 					<h1 className="todays-totals-header">Today's Totals</h1>
 					{duals_today.map(this.renderDualsByDay)}
+				</div>
+				
+				<div>
+					<h1 className="todays-totals-header">Battle Stats</h1>
+					{duals_history.map(this.renderDualsHistory)}
 				</div>
 				
 				<div>
