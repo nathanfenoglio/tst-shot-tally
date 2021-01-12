@@ -1,9 +1,8 @@
-import React, { Component } from 'react'; //added
-//import logo from './logo.svg';
+import React, { Component } from 'react'; 
 import './App.css';
 import MachineGunFire from "./machine_gun_fire.mp3";
 
-class App extends Component{ //added
+class App extends Component{ 
 	
 	state = {
 		players: [],
@@ -25,15 +24,9 @@ class App extends Component{ //added
 		this.getDualsHistory();
 	}
 	
-	getPlayers = _ => {
-		//fetch('tst-shot-tally-take-million.cpp3rxeuxzx8.us-east-2.rds.amazonaws.com/players')
-		//fetch('http://localhost:4000/players')
-		//fetch('http://localhost:4000/api/players')
-		fetch('http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players')
-		
-		//fetch('http://localhost:5000/players')
-		//fetch('https://tst-shot-tally.herokuapp.com/players')
-		//fetch('https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players')
+	//api fetch requests
+	getPlayers = () => {
+		fetch('http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players')		
 			.then(response => response.json())
 			.then(response => this.setState({ players: response.data }))
 			.catch(err => console.error(err))
@@ -41,9 +34,6 @@ class App extends Component{ //added
 	
 	getDualsToday = () => {
 		fetch('http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/duals_today')
-		//fetch('http://localhost:4000/duals_today')
-		//fetch('https://tst-shot-tally.herokuapp.com/duals_today')
-		//fetch('https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/duals_today')
 			.then(response => response.json())
 			.then(response => this.setState({ duals_today: response.data }))
 			.catch(err => console.error(err))
@@ -56,61 +46,24 @@ class App extends Component{ //added
 			.catch(err => console.error(err))
 	}
 	
-	addPlayer = _ => {
+	addPlayer = () => {
 		const { player } = this.state;
 		fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/add?F_name=${player.F_name}&L_name=${player.L_name}`)
-		//fetch(`http://localhost:4000/players/add?F_name=${player.F_name}&L_name=${player.L_name}`)
-		//fetch(`https://tst-shot-tally.herokuapp.com/players/add?F_name=${player.F_name}&L_name=${player.L_name}`)
-		//fetch(`https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players/add?F_name=${player.F_name}&L_name=${player.L_name}`)
 			.then(this.getPlayers)
 			.catch(err => console.error(err))
-	}
-	
-	//just trying to update something like tot_shots
-	updateSomething = _ => {
-		const { player } = this.state;
-		fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/update_something?player_ID=${player.player_ID}`)
-		//fetch(`http://localhost:4000/players/update_something?player_ID=${player.player_ID}`)
-		//fetch(`https://tst-shot-tally.herokuapp.com/players/update_something?player_ID=${player.player_ID}`)
-		//fetch(`https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players/update_something?player_ID=${player.player_ID}`)
-			.then(this.getPlayers)
-			.catch(err => console.error(err))
-	}
-	
-	//haven't figured out how to do stuff based on which of the buttons was pushed...
-	getButtonsUsingMap = () =>{
-		const { players } = this.state;
-		return players.map((one_player) => {
-			//return <button key={one_player.player_ID} onClick={console.log(one_player.F_name)}>{one_player.F_name}</button>
-			return <button key={one_player.player_ID} onClick={this.handleClick}>{one_player.F_name}</button>
-			//return <button key={one_player.player_ID} onClick= () => {this.setState({shooter: this.one_player.player_ID})}>{one_player.F_name}</button>
-		})
 	}
 	
 	begin_new_day = () =>{
 		fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/setup_new_day`)
-		//fetch(`http://localhost:4000/players/setup_new_day`)
-		//fetch(`https://tst-shot-tally.herokuapp.com/players/setup_new_day`)
-		//fetch(`https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players/setup_new_day`)
 			.then(this.getPlayers)
 			.then(this.getDualsToday)
 			.catch(err => console.error(err))
 	}
-	/*
-	end_day_tally = () => {
-		fetch(`http://localhost:4000/players/end_day_tally`)
-			.then(this.getPlayers)
-			.then(this.getDualsToday)
-			.catch(err => console.error(err))
-	}
-	*/
-	//changing to accept date input instead of current day
+	
+	//changing to accept date input instead of current day to allow for tallying previous days
 	end_day_tally = () => {
 		const { day_to_close } = this.state;
 		fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/end_day_tally?day_to_close=${day_to_close}`)
-		//fetch(`http://localhost:4000/players/end_day_tally?day_to_close=${day_to_close}`)
-		//fetch(`https://tst-shot-tally.herokuapp.com/players/end_day_tally?day_to_close=${day_to_close}`)
-		//fetch(`https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players/end_day_tally?day_to_close=${day_to_close}`)
 			.then(this.getPlayers)
 			.then(this.getDualsToday)
 			.catch(err => console.error(err))
@@ -119,20 +72,15 @@ class App extends Component{ //added
 	applyShot = () => {
 		const { shooter, got_shot } = this.state;
 		console.log("apply shot registered click");
+		//choice of which order the player is in player_1 or player_2 based on how the duals are organized to make the logic work
 		if(shooter < got_shot){
 			fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/apply_shot?shooter=${shooter}&got_shot=${got_shot}`)
-			//fetch(`http://localhost:4000/players/apply_shot?shooter=${shooter}&got_shot=${got_shot}`)
-			//fetch(`https://tst-shot-tally.herokuapp.com/players/apply_shot?shooter=${shooter}&got_shot=${got_shot}`)
-			//fetch(`https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players/apply_shot?shooter=${shooter}&got_shot=${got_shot}`)
 				.then(this.getPlayers)
 				.then(this.getDualsToday)
 				.catch(err => console.error(err))
 		}
 		else{
 			fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/apply_shot_player2?shooter=${shooter}&got_shot=${got_shot}`)
-			//fetch(`http://localhost:4000/players/apply_shot_player2?shooter=${shooter}&got_shot=${got_shot}`)
-			//fetch(`https://tst-shot-tally.herokuapp.com/players/apply_shot_player2?shooter=${shooter}&got_shot=${got_shot}`)
-			//fetch(`https://cors-anywhere.herokuapp.com/https://tst-shot-tally.herokuapp.com/players/apply_shot_player2?shooter=${shooter}&got_shot=${got_shot}`)
 				.then(this.getPlayers)
 				.then(this.getDualsToday)
 				.catch(err => console.error(err))
@@ -143,7 +91,6 @@ class App extends Component{ //added
 	//render functions to take data from state and turn into html like display stuff
 	renderPlayers = ({ player_ID, F_name, L_name, tot_shots}) => <div className="tot-shots-long-term" key={player_ID}>{F_name} {L_name} Total Shots: {tot_shots}</div>
 	renderDualsByDay = ( {player1_ID, player2_ID, p1_first_name, p2_first_name, p1_shots_for_day, p2_shots_for_day}) => <div key={player1_ID + '-' + player2_ID}><h3 className="total-entries">{p1_first_name}: {p1_shots_for_day} vs {p2_first_name}: {p2_shots_for_day}</h3></div>
-	//NEED TO FINISH renderDualsHistory and then display in render function
 	renderDualsHistory = ( {p1_F_name, p1_tot_wins, p2_F_name, p2_tot_wins } ) => <div key={p1_F_name + '-' + p2_F_name}><h3 className="total-entries">{p1_F_name}: {p1_tot_wins} vs {p2_F_name}: {p2_tot_wins}</h3></div>
 
 	render(){
@@ -156,7 +103,6 @@ class App extends Component{ //added
 				</div>
 				
 				<div>
-					{/*{this.getButtonsUsingMap()}*/}
 					<h1 className="shot-got-shot-header">The Shooter</h1>
 					{console.log("Shooter: ", this.state.shooter)}
 					<button className="player-button" onClick={() => this.setState({ shooter: 1 })}><img src="Nate_Waiving.png" alt="nathan" style={{width: '7vw', height: '7vw'}}/><br/>NathaN</button>
@@ -198,9 +144,11 @@ class App extends Component{ //added
 					<input className="input-box" value={day_to_close} placeholder='Enter date to close' onChange={e => this.setState({ day_to_close: e.target.value })}/>
 					<h3>{day_to_close}</h3>
 					<button className="button-default" onClick={this.end_day_tally}>End Day Tally Wins/Losses</button>
-					
 				</div>
-				
+				<div>
+					<h1 class="todays-totals-header" >All Time Shot Totals</h1>
+				</div>
+
 				{players.map(this.renderPlayers)}
 				
 				<div style={{marginBottom: "10em"}}>

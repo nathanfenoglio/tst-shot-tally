@@ -14,20 +14,15 @@
 }
 
 .player-button{
-  /*font-weight: bold;*/
   color: orangered;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  /*font-size: 40px;*/
   font-size: 4vw;
 }
 
 .apply-shot-button{
   background-color: #FF333E;
-  /*width: 200px;*/
   width: 14vw;
-  /*height: 100px;*/
   height: 7vw;
-  /*font-size: 33px;*/
   font-size: 2.5vw;
   font-weight: bold;
   color: chartreuse;
@@ -36,27 +31,35 @@
 .todays-totals-header{
   color: orchid;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  /*font-size: 90px;*/
   font-size: 6vw;
   height: 4vw;
+  animation: animate 1.0s linear infinite;
 }
+
+@keyframes animate {
+  0%{
+      opacity: 1;
+  }
+  50%{
+      opacity: 0.75;
+  }
+  100%{
+      opacity: 1;
+  }
+}
+
 
 .total-entries{
   color: blue;
-  /*font-size: 50px;*/
   font-size: 4vw;
   height: 2vw;
 }
 
 .button-default{
-  /*height: 80px;
-  width: 180px;
-  */
   height: 7vw;
   width: 14vw;
   font-family: calisto;
   font-weight: bold;
-  /*font-size: 23px;*/
   font-size: 1.7vw;
   color: tomato;
 }
@@ -78,40 +81,3 @@
   font-size: 2.5vw;
   background-color: chartreuse;
 }
-
-/*
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-*/
