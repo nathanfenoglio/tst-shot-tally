@@ -3,35 +3,6 @@ import React, { Component } from 'react'; //added
 import './App.css';
 import MachineGunFire from "./machine_gun_fire.mp3";
 
-/*
-class App extends Component{ //added
-	render(){
-	  return (
-		<div className="App">
-			<div>
-				<h1 style={{color: 'yellow', fontFamily: 'cursive', fontSize: 100}}> Tst Shot Tally</h1>
-			</div>
-		  <header className="App-header">
-			<img src={logo} className="App-logo" alt="logo" />
-			<p>
-			  Edit <code>src/App.js</code> and save to reload.
-			</p>
-			<a
-			  className="App-link"
-			  href="https://reactjs.org"
-			  target="_blank"
-			  rel="noopener noreferrer"
-			>
-			  Learn React
-			</a>
-		  </header>
-		</div>
-	  );
-	};
-}
-*/
-
-//function App() {
 class App extends Component{ //added
 	
 	state = {
@@ -79,7 +50,7 @@ class App extends Component{ //added
 	}
 
 	getDualsHistory = () =>{
-		fetch('http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/duals_history')
+		fetch('http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/duals_totals')
 			.then(response => response.json())
 			.then(response => this.setState({ duals_history: response.data }))
 			.catch(err => console.error(err))
@@ -173,7 +144,7 @@ class App extends Component{ //added
 	renderPlayers = ({ player_ID, F_name, L_name, tot_shots}) => <div className="tot-shots-long-term" key={player_ID}>{F_name} {L_name} Total Shots: {tot_shots}</div>
 	renderDualsByDay = ( {player1_ID, player2_ID, p1_first_name, p2_first_name, p1_shots_for_day, p2_shots_for_day}) => <div key={player1_ID + '-' + player2_ID}><h3 className="total-entries">{p1_first_name}: {p1_shots_for_day} vs {p2_first_name}: {p2_shots_for_day}</h3></div>
 	//NEED TO FINISH renderDualsHistory and then display in render function
-	renderDualsHistory = ( {p1_F_name, p1_tot_wins, p2_F_name, p2_tot_wins, } ) => <div key={p1_F_name + '-' + p2_F_name}><h3 className="total-entries">{p1_F_name}: {p1_tot_wins} vs {p2_F_name}: {p2_tot_wins}</h3></div>
+	renderDualsHistory = ( {p1_F_name, p1_tot_wins, p2_F_name, p2_tot_wins } ) => <div key={p1_F_name + '-' + p2_F_name}><h3 className="total-entries">{p1_F_name}: {p1_tot_wins} vs {p2_F_name}: {p2_tot_wins}</h3></div>
 
 	render(){
 		const { players, player, duals_today, day_to_close, duals_history } = this.state;
@@ -214,10 +185,10 @@ class App extends Component{ //added
 				</div>
 				
 				<div>
-					<h1 className="todays-totals-header">Battle Stats</h1>
+					<h1 className="todays-totals-header" style={{marginTop: "10vw"}}>Win/Loss Totals</h1>
 					{duals_history.map(this.renderDualsHistory)}
 				</div>
-				
+
 				<div>
 					<button className="button-default" onClick={this.begin_new_day}>Start New Day of Violence</button>
 				</div>

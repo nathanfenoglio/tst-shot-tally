@@ -86,7 +86,8 @@ app.get('/api/duals_today', (req, res) => {
 });
 
 //create route to Duals for history to display
-app.get('/api/duals_history', (req, res) => {
+//for some reason unable to get this to work...
+app.get('/api/duals_totals', (req, res) => {
 	const GET_DUALS_HISTORY = 'SELECT P1.F_name AS p1_F_name, D.p1_tot_wins AS p1_tot_wins, P2.F_name AS p2_F_name, D.p2_tot_wins AS p2_tot_wins FROM Duals D, Players P1, Players P2 WHERE P1.player_ID = D.player1_ID AND P2.player_ID = D.player2_ID';
 	connection.query(GET_DUALS_HISTORY, (err, results) => {
 		if(err){
