@@ -1,3 +1,5 @@
+//Do I need to change all of the fetches to be ec2-3-21-12-36.us-east-2.compute.amazonaws.com because it seems to be different after I stopped and restarted the instance???
+
 import React, { Component } from 'react'; 
 import './App.css';
 import MachineGunFire from "./machine_gun_fire.mp3";
