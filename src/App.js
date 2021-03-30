@@ -1,4 +1,4 @@
-//Do I need to change all of the fetches to be ec2-3-21-12-36.us-east-2.compute.amazonaws.com because it seems to be different after I stopped and restarted the instance???
+//Do I need to change all of the fetches to be ec2-3-21-12-36.us-east-2.compute.amazonaws.com because it seems to be different after I stopped and restarted the instance??? Yes I believe that that's the case
 
 import React, { Component } from 'react'; 
 import './App.css';
@@ -28,21 +28,24 @@ class App extends Component{
 	
 	//api fetch requests
 	getPlayers = () => {
-		fetch('http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players')		
+		//fetch('http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players')		
+		fetch('http://ec2-3-21-12-36.us-east-2.compute.amazonaws.com/api/players')		
 			.then(response => response.json())
 			.then(response => this.setState({ players: response.data }))
 			.catch(err => console.error(err))
 	}
 	
 	getDualsToday = () => {
-		fetch('http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/duals_today')
+		//fetch('http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/duals_today')
+		fetch('http://ec2-3-21-12-36.us-east-2.compute.amazonaws.com/api/duals_today')
 			.then(response => response.json())
 			.then(response => this.setState({ duals_today: response.data }))
 			.catch(err => console.error(err))
 	}
 
 	getDualsHistory = () =>{
-		fetch('http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/duals_totals')
+		//fetch('http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/duals_totals')
+		fetch('http://ec2-3-21-12-36.us-east-2.compute.amazonaws.com/api/duals_totals')
 			.then(response => response.json())
 			.then(response => this.setState({ duals_history: response.data }))
 			.catch(err => console.error(err))
@@ -50,13 +53,15 @@ class App extends Component{
 	
 	addPlayer = () => {
 		const { player } = this.state;
-		fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/add?F_name=${player.F_name}&L_name=${player.L_name}`)
+		//fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/add?F_name=${player.F_name}&L_name=${player.L_name}`)
+		fetch(`http://ec2-3-21-12-36.us-east-2.compute.amazonaws.com/api/players/add?F_name=${player.F_name}&L_name=${player.L_name}`)
 			.then(this.getPlayers)
 			.catch(err => console.error(err))
 	}
 	
 	begin_new_day = () =>{
-		fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/setup_new_day`)
+		//fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/setup_new_day`)
+		fetch(`http://ec2-3-21-12-36.us-east-2.compute.amazonaws.com/api/players/setup_new_day`)
 			.then(this.getPlayers)
 			.then(this.getDualsToday)
 			.catch(err => console.error(err))
@@ -65,7 +70,8 @@ class App extends Component{
 	//changing to accept date input instead of current day to allow for tallying previous days
 	end_day_tally = () => {
 		const { day_to_close } = this.state;
-		fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/end_day_tally?day_to_close=${day_to_close}`)
+		//fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/end_day_tally?day_to_close=${day_to_close}`)
+		fetch(`http://ec2-3-21-12-36.us-east-2.compute.amazonaws.com/api/players/end_day_tally?day_to_close=${day_to_close}`)
 			.then(this.getPlayers)
 			.then(this.getDualsToday)
 			.catch(err => console.error(err))
@@ -76,13 +82,15 @@ class App extends Component{
 		console.log("apply shot registered click");
 		//choice of which order the player is in player_1 or player_2 based on how the duals are organized to make the logic work
 		if(shooter < got_shot){
-			fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/apply_shot?shooter=${shooter}&got_shot=${got_shot}`)
+			//fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/apply_shot?shooter=${shooter}&got_shot=${got_shot}`)
+			fetch(`http://ec2-3-21-12-36.us-east-2.compute.amazonaws.com/api/players/apply_shot?shooter=${shooter}&got_shot=${got_shot}`)
 				.then(this.getPlayers)
 				.then(this.getDualsToday)
 				.catch(err => console.error(err))
 		}
 		else{
-			fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/apply_shot_player2?shooter=${shooter}&got_shot=${got_shot}`)
+			//fetch(`http://ec2-3-139-86-44.us-east-2.compute.amazonaws.com/api/players/apply_shot_player2?shooter=${shooter}&got_shot=${got_shot}`)
+			fetch(`http://ec2-3-21-12-36.us-east-2.compute.amazonaws.com/api/players/apply_shot_player2?shooter=${shooter}&got_shot=${got_shot}`)
 				.then(this.getPlayers)
 				.then(this.getDualsToday)
 				.catch(err => console.error(err))
